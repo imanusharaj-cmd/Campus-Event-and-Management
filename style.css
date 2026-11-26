@@ -1,17 +1,19 @@
-/* Basic styling */
+/* Basic Settings */
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f4f6ff;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
 }
 
-/* Header */
+
+/* Navigation Bar */
 
 header {
-    background-color: #e48406;
+    background-color: #14213d;
     color: white;
-    padding: 15px 30px;
+
+    padding: 20px;
 
     display: flex;
     justify-content: space-between;
@@ -21,137 +23,145 @@ header {
 nav a {
     color: white;
     text-decoration: none;
-    margin: 10px;
+
+    margin: 15px;
 }
 
-nav button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 /* Home Section */
 
-.hero {
-    text-align: center;
-    padding: 80px 20px;
-    background-color: #e0e7ff;
-}
-
-.hero h1 {
-    font-size: 40px;
-    color: #3730a3;
-}
-
-.hero p {
-    font-size: 18px;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #f4860a;
+#home {
+    background-color: #4361ee;
     color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 5px;
+
+    text-align: center;
+
+    padding: 70px 20px;
 }
+
+#home h1 {
+    font-size: 35px;
+}
+
+#home button {
+    background-color: orange;
+    border: none;
+
+    padding: 12px 25px;
+
+    cursor: pointer;
+}
+
 
 /* Events Section */
 
-section {
-    padding: 40px;
-}
+#events {
+    padding: 40px 20px;
 
-section h2 {
     text-align: center;
 }
 
 .event-container {
     display: flex;
-    flex-wrap: wrap;
+
     justify-content: center;
+    flex-wrap: wrap;
+
     gap: 20px;
 }
 
-/* Event Card */
-
 .event-card {
     background-color: white;
-    width: 250px;
+
+    width: 220px;
+
     padding: 20px;
+
     border-radius: 10px;
-    box-shadow: 0 3px 10px #cccccc;
-    text-align: center;
+
+    box-shadow: 0px 3px 10px lightgray;
 }
 
 .event-card h3 {
-    color: #4f46e5;
+    color: #14213d;
 }
 
-.event-card button {
-    background-color: #d68411;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.event-card button:hover {
-    background-color: #d0890f;
-}
+/* Registration Section */
 
-/* Forms */
+#registration {
+    padding: 40px 20px;
+
+    text-align: center;
+}
 
 form {
-    max-width: 400px;
+    background-color: white;
+
+    width: 300px;
+
     margin: auto;
+
+    padding: 25px;
+
+    border-radius: 10px;
 }
 
-input {
+label {
+    display: block;
+
+    text-align: left;
+
+    margin-top: 10px;
+}
+
+input, select {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
+
+    padding: 10px;
+
+    margin-top: 8px;
+    margin-bottom: 15px;
+
     box-sizing: border-box;
 }
 
 form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #e5ab46;
+    background-color: #4361ee;
     color: white;
+
     border: none;
+
+    padding: 12px;
+
+    width: 100%;
+
     cursor: pointer;
 }
 
-/* Admin */
 
-#admin {
-    background-color: white;
+/* Message */
+
+#message {
+    color: green;
+
+    font-weight: bold;
 }
 
-#studentList {
-    max-width: 600px;
-    margin: auto;
-}
-
-/* Hide section */
-
-.hidden {
-    display: none;
-}
 
 /* Footer */
 
 footer {
-    text-align: center;
-    background-color: #1e1b4b;
+    background-color: #14213d;
     color: white;
+
+    text-align: center;
+
     padding: 20px;
 }
 
-/* Mobile responsive */
+
+/* Mobile Responsive */
 
 @media (max-width: 600px) {
 
@@ -159,12 +169,12 @@ footer {
         flex-direction: column;
     }
 
-    .hero h1 {
-        font-size: 28px;
+    nav {
+        margin-top: 15px;
     }
 
-    section {
-        padding: 20px;
+    .event-card {
+        width: 90%;
     }
 
 }
