@@ -1,0 +1,699 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Events | Event Management Portal</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            CampusEvents
+        </div>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <button class="admin-btn" id="adminBtn">
+            Admin Panel
+        </button>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                ✨ YOUR CAMPUS, YOUR MOMENT
+            </span>
+
+            <h1>
+                Discover Events.<br>
+                <span>Make Memories.</span>
+            </h1>
+
+            <p>
+                Explore exciting campus events, workshops, competitions
+                and seminars. Register for your next unforgettable experience.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#events" class="primary-btn">
+                    Explore Events →
+                </a>
+
+                <a href="#about" class="secondary-btn">
+                    Learn More
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="hero-card-icon">🎉</div>
+                <h3>Something exciting is happening!</h3>
+                <p>Your next campus experience awaits.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+
+        <div class="stat-card">
+            <h2 id="totalEvents">0</h2>
+            <p>Total Events</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="totalRegistrations">0</h2>
+            <p>Registrations</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="upcomingEvents">0</h2>
+            <p>Upcoming Events</p>
+        </div>
+
+    </section>
+
+
+    <!-- EVENTS SECTION -->
+    <section class="events-section" id="events">
+
+        <div class="section-heading">
+            <span class="section-tag">CAMPUS ACTIVITIES</span>
+
+            <h2>Explore <span>Events</span></h2>
+
+            <p>
+                Find something you love and be a part of it.
+            </p>
+        </div>
+
+
+        <!-- SEARCH AND FILTER -->
+        <div class="event-controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search events..."
+            >
+
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="Technical">Technical</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Sports">Sports</option>
+                <option value="Seminar">Seminar</option>
+            >
+
+            </select>
+
+        </div>
+
+
+        <!-- EVENT CARDS WILL BE ADDED USING JAVASCRIPT -->
+        <div class="events-grid" id="eventsContainer">
+
+        </div>
+
+        <p class="empty-message" id="emptyMessage">
+            No events found.
+        </p>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+
+        <div class="section-heading">
+            <span class="section-tag">ABOUT OUR PORTAL</span>
+
+            <h2>Everything happening<br>on your <span>campus.</span></h2>
+        </div>
+
+        <div class="about-grid">
+[21-11-2026 01:17] Imran: <div class="about-card">
+                <div class="about-icon">📅</div>
+                <h3>Discover Events</h3>
+                <p>
+                    Browse upcoming campus events and discover
+                    activities that match your interests.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="about-icon">🎟</div>
+                <h3>Easy Registration</h3>
+                <p>
+                    Register for events with a simple form
+                    and get your confirmation.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="about-icon">📊</div>
+                <h3>Live Seat Updates</h3>
+                <p>
+                    Check available seats and registration status
+                    before booking your spot.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REGISTRATION MODAL -->
+    <div class="modal" id="registrationModal">
+
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeRegistrationModal">
+                &times;
+            </button>
+
+            <h2>Register for Event</h2>
+
+            <p id="selectedEventName">
+                Event Name
+            </p>
+
+            <form id="registrationForm">
+
+                <input type="hidden" id="eventId">
+
+                <label for="studentName">Full Name</label>
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label for="studentId">Student Registration Number</label>
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="Enter your registration number"
+                    required
+                >
+
+                <label for="studentEmail">Email Address</label>
+                <input
+                    type="email"
+                    id="studentEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="studentCourse">Course / Branch</label>
+                <input
+                    type="text"
+                    id="studentCourse"
+                    placeholder="e.g. B.Tech CSE"
+                    required
+                >
+
+                <button type="submit" class="primary-btn">
+                    Confirm Registration
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal" id="confirmationModal">
+
+        <div class="modal-content confirmation-content">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Registration Successful!</h2>
+
+            <p id="confirmationDetails"></p>
+
+            <p>
+                Registration ID:
+                <strong id="confirmationId"></strong>
+            </p>
+
+            <button class="primary-btn" id="printConfirmation">
+                Print Confirmation
+            </button>
+
+            <button class="secondary-btn" id="closeConfirmation">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADMIN MODAL -->
+    <div class="modal" id="adminModal">
+
+        <div class="modal-content admin-content">
+
+            <button class="close-modal" id="closeAdminModal">
+                &times;
+            </button>
+
+            <h2>Admin Dashboard</h2>
+
+            <p>Manage campus events and registrations.</p>
+
+            <div class="admin-stats">
+
+                <div class="admin-stat">
+                    <h3 id="adminEventCount">0</h3>
+                    <p>Events</p>
+                </div>
+
+                <div class="admin-stat">
+                    <h3 id="adminRegistrationCount">0</h3>
+                    <p>Registrations</p>
+                </div>
+
+            </div>
+
+            <h3>Create New Event</h3>
+
+            <form id="eventForm">
+                [21-11-2026 01:17] Imran: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Events | Event Management Portal</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            CampusEvents
+        </div>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <button class="admin-btn" id="adminBtn">
+            Admin Panel
+        </button>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                ✨ YOUR CAMPUS, YOUR MOMENT
+            </span>
+
+            <h1>
+                Discover Events.<br>
+                <span>Make Memories.</span>
+            </h1>
+
+            <p>
+                Explore exciting campus events, workshops, competitions
+                and seminars. Register for your next unforgettable experience.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#events" class="primary-btn">
+                    Explore Events →
+                </a>
+
+                <a href="#about" class="secondary-btn">
+                    Learn More
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="hero-card-icon">🎉</div>
+                <h3>Something exciting is happening!</h3>
+                <p>Your next campus experience awaits.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+
+        <div class="stat-card">
+            <h2 id="totalEvents">0</h2>
+            <p>Total Events</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="totalRegistrations">0</h2>
+            <p>Registrations</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="upcomingEvents">0</h2>
+            <p>Upcoming Events</p>
+        </div>
+
+    </section>
+
+
+    <!-- EVENTS SECTION -->
+    <section class="events-section" id="events">
+
+        <div class="section-heading">
+            <span class="section-tag">CAMPUS ACTIVITIES</span>
+
+            <h2>Explore <span>Events</span></h2>
+
+            <p>
+                Find something you love and be a part of it.
+            </p>
+        </div>
+
+
+        <!-- SEARCH AND FILTER -->
+        <div class="event-controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search events..."
+            >
+
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="Technical">Technical</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Sports">Sports</option>
+                <option value="Seminar">Seminar</option>
+            >
+
+            </select>
+
+        </div>
+
+
+        <!-- EVENT CARDS WILL BE ADDED USING JAVASCRIPT -->
+        <div class="events-grid" id="eventsContainer">
+
+        </div>
+
+        <p class="empty-message" id="emptyMessage">
+            No events found.
+        </p>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+
+        <div class="section-heading">
+            <span class="section-tag">ABOUT OUR PORTAL</span>
+
+            <h2>Everything happening<br>on your <span>campus.</span></h2>
+        </div>
+
+        <div class="about-grid">
+[21-11-2026 01:17] Imran: <div class="about-card">
+                <div class="about-icon">📅</div>
+                <h3>Discover Events</h3>
+                <p>
+                    Browse upcoming campus events and discover
+                    activities that match your interests.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="about-icon">🎟</div>
+                <h3>Easy Registration</h3>
+                <p>
+                    Register for events with a simple form
+                    and get your confirmation.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="about-icon">📊</div>
+                <h3>Live Seat Updates</h3>
+                <p>
+                    Check available seats and registration status
+                    before booking your spot.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REGISTRATION MODAL -->
+    <div class="modal" id="registrationModal">
+
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeRegistrationModal">
+                &times;
+            </button>
+
+            <h2>Register for Event</h2>
+
+            <p id="selectedEventName">
+                Event Name
+            </p>
+
+            <form id="registrationForm">
+
+                <input type="hidden" id="eventId">
+
+                <label for="studentName">Full Name</label>
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label for="studentId">Student Registration Number</label>
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="Enter your registration number"
+                    required
+                >
+
+                <label for="studentEmail">Email Address</label>
+                <input
+                    type="email"
+                    id="studentEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="studentCourse">Course / Branch</label>
+                <input
+                    type="text"
+                    id="studentCourse"
+                    placeholder="e.g. B.Tech CSE"
+                    required
+                >
+
+                <button type="submit" class="primary-btn">
+                    Confirm Registration
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal" id="confirmationModal">
+
+        <div class="modal-content confirmation-content">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Registration Successful!</h2>
+
+            <p id="confirmationDetails"></p>
+
+            <p>
+                Registration ID:
+                <strong id="confirmationId"></strong>
+            </p>
+
+            <button class="primary-btn" id="printConfirmation">
+                Print Confirmation
+            </button>
+
+            <button class="secondary-btn" id="closeConfirmation">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADMIN MODAL -->
+    <div class="modal" id="adminModal">
+
+        <div class="modal-content admin-content">
+
+            <button class="close-modal" id="closeAdminModal">
+                &times;
+            </button>
+
+            <h2>Admin Dashboard</h2>
+
+            <p>Manage campus events and registrations.</p>
+
+            <div class="admin-stats">
+
+                <div class="admin-stat">
+                    <h3 id="adminEventCount">0</h3>
+                    <p>Events</p>
+                </div>
+
+                <div class="admin-stat">
+                    <h3 id="adminRegistrationCount">0</h3>
+                    <p>Registrations</p>
+                </div>
+
+            </div>
+
+            <h3>Create New Event</h3>
+
+            <form id="eventForm">
+[21-11-2026 01:17] Imran: <label for="eventTitle">Event Name</label>
+                <input
+                    type="text"
+                    id="eventTitle"
+                    placeholder="Event name"
+                    required
+                >
+
+                <label for="eventCategory">Category</label>
+                <select id="eventCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Cultural">Cultural</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Seminar">Seminar</option>
+                </select>
+
+                <label for="eventDate">Event Date</label>
+                <input type="date" id="eventDate" required>
+
+                <label for="eventTime">Event Time</label>
+                <input type="time" id="eventTime" required>
+
+                <label for="eventVenue">Venue</label>
+                <input
+                    type="text"
+                    id="eventVenue"
+                    placeholder="Event venue"
+                    required
+                >
+
+                <label for="eventCapacity">Maximum Participants</label>
+                <input
+                    type="number"
+                    id="eventCapacity"
+                    min="1"
+                    placeholder="Maximum seats"
+                    required
+                >
+
+                <label for="eventDescription">Description</label>
+                <textarea
+                    id="eventDescription"
+                    placeholder="Describe your event..."
+                    required
+                ></textarea>
+
+                <button type="submit" class="primary-btn">
+                    Create Event
+                </button>
+
+            </form>
+
+            <h3>Manage Existing Events</h3>
+
+            <div id="adminEventsList"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            CampusEvents
+        </div>
+
+        <p>
+            Made for students. Powered by campus spirit.
+        </p>
+
+        <p class="copyright">
+            © 2026 Campus Event Management Portal
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
